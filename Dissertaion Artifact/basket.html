@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Basket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="basket">
+        <div class="container">
+            <h2>Your Shopping Basket</h2>
+            <div id="selectedPlan">
+                <h3>Selected Plan:</h3>
+                <p>Plan Name: <span id="planName"></span></p>
+                <p>Price: <span id="planPrice"></span></p>
+            </div>
+            <a href="index.html" class="btn">Continue Shopping</a>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const planName = localStorage.getItem('selectedPlanName');
+            const planPrice = localStorage.getItem('selectedPlanPrice');
+
+            if (planName && planPrice) {
+                document.getElementById('planName').textContent = planName;
+                document.getElementById('planPrice').textContent = planPrice;
+            } else {
+                document.getElementById('selectedPlan').innerHTML = '<p>No plan selected.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

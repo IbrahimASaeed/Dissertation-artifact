@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Course Recommendations</title>
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Box Icons -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Style for the "Why This Course" panel */
+        .why-this-course {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-this-course h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .why-this-course ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-this-course li {
+            margin-bottom: 8px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo">UserFlow<span>AI</span></a>
+            <input type="checkbox" name="" id="menu">
+            <label for="menu" <i class='bx bx-menu' id="menu-icon"></i></label>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI-Driven Course Recommendations</h1>
+            <p>Revolutionize your learning journey with personalized course suggestions powered by cutting-edge AI technology.</p>
+            <a href="register.html" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="heading">
+                <h2>Our Services</h2>
+                <p>Empowering learners with tailored recommendations for a seamless e-learning experience.</p>
+            </div>
+            <div class="services-container">
+                <div class="box">
+                    <h3>Personalized Learning Paths</h3>
+                    <p>Our AI analyzes your preferences, skills, and goals to recommend courses that suit your unique learning style.</p>
+                </div>
+                <div class="box">
+                    <h3>Dynamic Course Updates</h3>
+                    <p>Stay ahead with real-time updates on trending courses and emerging skills in your field of interest.</p>
+                </div>
+                <div class="box">
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your learning journey with detailed insights and recommendations for continuous improvement.</p>
+                </div>
+            </div>
+            <a href="survey.html" class="btn">Get Service</a>
+
+            <!-- Why This Course Panel -->
+            <div class="why-this-course">
+                <h3>Why This Course?</h3>
+                <ul>
+                    <li>Tailored to your learning style</li>
+                    <li>Aligns with your career goals</li>
+                    <li>Covers essential skills in your field</li>
+                    <li>Highly rated by other learners</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Survey Popup -->
+    <div id="surveyPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closeSurveyPopup()">&times;</span>
+            <h2>Take Our Survey</h2>
+            <p>Answer a few questions to get personalized course recommendations!</p>
+            <a href="survey.html" class="btn">Go to Survey</a>
+        </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="heading">
+                <h2>Why Choose UserFlow AI?</h2>
+            </div>
+            <ul>
+                <li>AI-powered recommendations tailored to your learning goals.</li>
+                <li>Comprehensive course database across diverse domains.</li>
+                <li>Seamless integration with leading e-learning platforms.</li>
+                <li>Expert support to guide you every step of the way.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Ready to transform your learning experience?</p>
+            <a href="register.html" class="btn">Register Now</a>
+            <p>&#169; 2025 LearnFlow AI. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

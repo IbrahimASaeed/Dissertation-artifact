@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <style>
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .review-form input,
+        .review-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .review-form button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo">UserFlow<span>AI</span></a>
+            <input type="checkbox" name="" id="menu">
+            <label for="menu" <i class='bx bx-menu' id="menu-icon"></i></label>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="prices.html">Prices</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="heading">
+                <span>Reviews</span>
+                <h1>What Our Customers Say</h1>
+            </div>
+            <div class="reviews-container" id="reviews-container">
+                <div class="box">
+                    <div class="rev-img">
+                        <img src="img/person-placeholder.jpg" alt="">
+                    </div>
+                    <h2>Bob Myers</h2>
+                    <div class="stars">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+                    <p>"I rented a car from this company for a business trip, and it was a great experience. The rental process was quick and easy, and the car was in excellent condition. The staff was professional and courteous, and they went above and beyond to ensure my needs were met. I would highly recommend this company to anyone in need of a rental car."</p>
+                </div>
+
+                <div class="box">
+                    <div class="rev-img">
+                        <img src="img/person-placeholder.jpg" alt="">
+                    </div>
+                    <h2>John Cork</h2>
+                    <div class="stars">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+                    <p>"I recently rented a car from this company for a family trip, and I must say I was impressed. The process was very smooth, and the staff was friendly and helpful. The car was clean and in excellent condition, and it was the perfect size for our family. I would definitely recommend this car rental company to anyone looking for a hassle-free rental experience."</p>
+                </div>
+
+                <div class="box">
+                    <div class="rev-img">
+                        <img src="img/person-placeholder.jpg" alt="">
+                    </div>
+                    <h2>Freddie Mercury</h2>
+                    <div class="stars">
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half'></i>
+                    </div>
+                    <p>"I rented a luxury car from this company for a special occasion, and I was blown away. The car was immaculate, and it had all the latest features and technology. The staff was very friendly and helpful, and they made the rental process easy and stress-free. If you're looking for a high-quality rental car, this company is definitely worth checking out."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Write your own Review</h2>
+            <div class="review-form">
+                <input type="text" placeholder="Enter your name" id="newReviewerName">
+                <textarea placeholder="Enter your review here" id="newReviewText" rows="4"></textarea>
+                <button onclick="addReview()" class="btn">Confirm</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Want to share your experience? <a href="contact.html" class="btn">Contact Us</a></p>
+            <p>&#169; 2025 Ibz All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function addReview() {
+            const newReviewText = document.getElementById('newReviewText').value;
+            const newReviewerName = document.getElementById('newReviewerName').value;
+
+            if (newReviewText.trim() !== '' && newReviewerName.trim() !== '') {
+                const reviewsContainer = document.getElementById('reviews-container');
+
+                // Create new review box
+                const newReviewBox = document.createElement('div');
+                newReviewBox.classList.add('box');
+
+                // Review image
+                const revImg = document.createElement('div');
+                revImg.classList.add('rev-img');
+                const img = document.createElement('img');
+                img.src = 'img/person-placeholder.jpg';
+                img.alt = 'User Review';
+                revImg.appendChild(img);
+                newReviewBox.appendChild(revImg);
+
+                // Reviewer name
+                const reviewerName = document.createElement('h2');
+                reviewerName.textContent = newReviewerName;
+                newReviewBox.appendChild(reviewerName);
+
+                // Stars (optional - you can add a star rating input if needed)
+                const starsDiv = document.createElement('div');
+                starsDiv.classList.add('stars');
+                starsDiv.innerHTML = `
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star-half'></i>
+                `;
+                newReviewBox.appendChild(starsDiv);
+
+                // Review text
+                const reviewParagraph = document.createElement('p');
+                reviewParagraph.textContent = newReviewText;
+                newReviewBox.appendChild(reviewParagraph);
+
+                // Add the new review to the container
+                reviewsContainer.appendChild(newReviewBox);
+
+                // Clear the input fields
+                document.getElementById('newReviewText').value = '';
+                document.getElementById('newReviewerName').value = '';
+            } else {
+                alert('Please enter your name and review.');
+            }
+        }
+    </script>
+</body>
+</html>

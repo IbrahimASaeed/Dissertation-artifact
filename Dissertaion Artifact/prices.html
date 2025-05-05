@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prices</title>
+    <!-- Link To CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Box Icons -->
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo">UserFlow<span>AI</span></a>
+            <input type="checkbox" name="" id="menu">
+            <label for="menu" <i class='bx bx-menu' id="menu-icon"></i></label>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="prices.html" class="active">Prices</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Prices Section -->
+    <section class="prices container">
+        <div class="heading">
+            <h2>Our Pricing Plans</h2>
+            <p>Choose a plan that fits your needs and budget.</p>
+        </div>
+        <div class="prices-container">
+            <div class="price-box">
+                <h3>Basic Plan</h3>
+                <p>£19.99/month</p>
+                <ul>
+                    <li>Responsive Design</li>
+                    <li>Limited Design</li>
+                    <li>Basic Support</li>
+                </ul>
+                <a href="#" class="btn" onclick="savePlan('Basic Plan', '£19.99/month')">Get Started</a>
+            </div>
+            <div class="price-box">
+                <h3>Standard Plan</h3>
+                <p>£49.99/month</p>
+                <ul>
+                    <li>Semi- Design</li>
+                    <li>10 Pages</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="#" class="btn" onclick="savePlan('Standard Plan', '£49.99/month')">Get Started</a>
+            </div>
+            <div class="price-box">
+                <h3>Premium Plan</h3>
+                <p>£99.99/month</p>
+                <ul>
+                    <li>Full Design</li>
+                    <li>Unlimited Pages</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <a href="#" class="btn" onclick="savePlan('Premium Plan', '£99.99/month')">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright container">
+            <p>&#169; Ibby All Rights Reserved</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function savePlan(planName, planPrice) {
+            localStorage.setItem('selectedPlanName', planName);
+            localStorage.setItem('selectedPlanPrice', planPrice);
+            window.location.href = 'basket.html';
+        }
+    </script>
+</body>
+</html>

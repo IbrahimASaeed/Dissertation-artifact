@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Service Recommendation Survey</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Enhanced Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .survey {
+            padding: 3rem 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .question div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px; /* Add some spacing between the radio button options */
+        }
+
+        select,
+        input[type="radio"] {
+            margin-right: 8px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 5px; /* Add some spacing between the radio button and the label */
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .recommendation-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .recommendation-box h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-box p {
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <section class="survey">
+        <div class="container">
+            <h2>E-Learning Service Recommendation Survey</h2>
+            <form id="surveyForm">
+                <div class="question">
+                    <label for="learningGoal">What is your primary learning goal?</label>
+                    <select name="learningGoal" id="learningGoal">
+                        <option value="upskill">Upskilling in current field</option>
+                        <option value="careerChange">Changing career paths</option>
+                        <option value="personalInterest">Personal enrichment</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label for="learningStyle">What is your preferred learning style?</label>
+                    <select name="learningStyle" id="learningStyle">
+                        <option value="visual">Visual (videos, infographics)</option>
+                        <option value="auditory">Auditory (podcasts, lectures)</option>
+                        <option value="kinesthetic">Kinesthetic (hands-on activities)</option>
+                        <option value="readingWriting">Reading/Writing (articles, books)</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label for="experienceLevel">What is your current level of experience in the subject?</label>
+                    <div>
+                        <input type="radio" id="beginner" name="experienceLevel" value="beginner">
+                        <label for="beginner">Beginner</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="intermediate" name="experienceLevel" value="intermediate">
+                        <label for="intermediate">Intermediate</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="advanced" name="experienceLevel" value="advanced">
+                        <label for="advanced">Advanced</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <label for="timeCommitment">How much time per week can you commit to learning?</label>
+                    <select name="timeCommitment" id="timeCommitment">
+                        <option value="lessThan5">Less than 5 hours</option>
+                        <option value="5to10">5-10 hours</option>
+                        <option value="moreThan10">More than 10 hours</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Get Recommendation</button>
+            </form>
+            <div id="recommendation" class="recommendation-box">
+                <h3>Recommended Service:</h3>
+                <p id="serviceRecommendation"></p>
+            </div>
+            <a href="index.html" class="btn">Back to Home</a>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('surveyForm');
+            const recommendationDiv = document.getElementById('recommendation');
+            const serviceRecommendation = document.getElementById('serviceRecommendation');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const learningGoal = document.getElementById('learningGoal').value;
+                const learningStyle = document.getElementById('learningStyle').value;
+                const experienceLevel = document.querySelector('input[name="experienceLevel"]:checked')?.value;
+                const timeCommitment = document.getElementById('timeCommitment').value;
+
+                let recommendation = '';
+
+                // Recommendation logic
+                if (learningGoal === 'upskill') {
+                    recommendation = 'To enhance your skills, we suggest focusing on targeted courses and advanced workshops.';
+                } else if (learningGoal === 'careerChange') {
+                    recommendation = 'For a career transition, consider our comprehensive bootcamps and career counseling services.';
+                } else if (learningGoal === 'personalInterest') {
+                    recommendation = 'To explore your personal interests, check out our diverse range of hobby courses and introductory workshops.';
+                } else {
+                    recommendation = 'Based on your responses, we recommend exploring our full range of e-learning services to find the best fit for your needs.';
+                }
+
+                serviceRecommendation.textContent = recommendation;
+                recommendationDiv.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
+\Users\Admin\OneDrive\Documents\Dissertaion Artifact
